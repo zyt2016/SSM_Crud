@@ -1,12 +1,18 @@
 package com.zyt.bean;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.Pattern;
+
 public class Employee {
     private Integer empId;
-
+    @Pattern(regexp = "(^[a-zA-Z0-9_-]{6,10}$)|(^[\\u2E80-\\u9FFF]{2,5})"
+    ,message = "用户名必须是2-5位中文或者6-10位的字母和数字的组合")
     private String empName;
 
     private String gender;
-
+    //@Email
+    @Pattern(regexp = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$")
     private String email;
 
     private Integer dId;
